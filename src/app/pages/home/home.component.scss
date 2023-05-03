@@ -1,0 +1,71 @@
+@import '/src/styles.scss';
+
+.home{
+  margin-top: 7rem;
+  margin-bottom: 5rem;
+  @media (max-width: 600px)
+  {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  h5{
+    color: $white;
+    margin-bottom: 1rem;
+  }
+
+.trending-cards{
+  &__title{
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: $white;
+  }
+  &__banner{
+      width: 100%;
+      display: flex;
+      max-height: 320px;
+      position: relative;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      &::-webkit-scrollbar{
+        height: 10px;
+      }
+      &::-webkit-scrollbar-thumb{
+        background-color: $searchInputColor;
+        border-radius: 1rem;
+      }
+      &::-webkit-scrollbar-track{
+        background-color: $bgColor;
+        border-radius: 1rem;
+      }
+      .div{
+        @include size(100%,300px);
+        position: relative;
+      }
+      &--img{
+        height: 100%;
+        object-fit: contain;
+        transition: transform 450ms;
+        margin-right: 2rem;
+        border-radius: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        &:hover{
+          transform: scale(1.09);
+          cursor: pointer;
+        }
+      }
+      &--number {
+        position: absolute;
+        bottom:-100px;
+        left: -20px;
+        transform: translateY(-50%);
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 96px;
+        text-shadow: 0px 4px 4px rgba(0, 145, 255, 0.745);
+        color: $bgColor;
+      }
+  }
+}
+}
+

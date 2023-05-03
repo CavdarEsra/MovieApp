@@ -1,0 +1,97 @@
+<section class="home container mx-auto">
+  <app-search (appSearch)="getSearchStatus($event)"></app-search>
+  <!--! trending movies cards -->
+  <div *ngIf="!searched">
+      <div class="trending-cards">
+      <h4 class="trending-cards__title">Trending Movies</h4>
+        <div class="trending-cards__banner">
+            <ng-container *ngFor="let movie of trendingMovieResult; let i=index">
+              <div class="div">
+                <img src="https://image.tmdb.org/t/p/original/{{ movie.poster_path }}" alt="..."
+                     [routerLink]="['/movie',movie.id]"
+                     class="trending-cards__banner--img"
+                >
+                <!-- film resmi üstüne tıklandığında o filmin ayrıntılarının yer aldığı bir sayfaya yönlendirilir. movie yi app.routing.module.ts den alıyor -->
+                <span class="trending-cards__banner--number"> {{i+1}} </span>
+              </div>
+            </ng-container>
+          </div>
+      </div>
+      <!--! orta kısımdaki tab(navbar gibi) kısmı -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="nowPlaying-tab" data-bs-toggle="tab" data-bs-target="#nowPlaying" type="button" role="tab" aria-controls="nowPlaying" aria-selected="true">Now playing</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="upComing-tab" data-bs-toggle="tab" data-bs-target="#upComing" type="button" role="tab" aria-controls="upComing" aria-selected="false">Upcoming</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="topRated-tab" data-bs-toggle="tab" data-bs-target="#topRated" type="button" role="tab" aria-controls="topRated" aria-selected="false">Top rated</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="topRated-tab" data-bs-toggle="tab" data-bs-target="#popular" type="button" role="tab" aria-controls="popular" aria-selected="false">Popular</button>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="nowPlaying" role="tabpanel" aria-labelledby="nowPlaying-tab">
+        <!-- now playing -->
+        <div class="movie-card">
+          <div class="movie-card__content">
+          <ng-container *ngFor="let tr of trendingMovieResult">
+            <img src="https://image.tmdb.org/t/p/original/{{ tr.poster_path }}" alt="..."
+            [routerLink]="['/movie',tr.id]"
+            class="movie-card__content--img"
+            *ngIf="tr.poster_path"
+            >
+          </ng-container>
+        </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="upComing" role="tabpanel" aria-labelledby="upComing-tab">
+        <!-- up coming  -->
+        <div class="movie-card">
+          <div class="movie-card__content">
+          <ng-container *ngFor="let u of upComingResult">
+            <img src="https://image.tmdb.org/t/p/original/{{ u.poster_path }}" alt="..."
+            [routerLink]="['/movie',u.id]"
+            class="movie-card__content--img"
+            *ngIf="u.poster_path"
+            >
+          </ng-container>
+        </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="topRated" role="tabpanel" aria-labelledby="topRated-tab">
+        <!-- top rated -->
+        <div class="movie-card">
+          <div class="movie-card__content">
+          <ng-container *ngFor="let to of topRatedResult">
+            <img src="https://image.tmdb.org/t/p/original/{{ to.poster_path }}" alt="..."
+            [routerLink]="['/movie',to.id]"
+            class="movie-card__content--img"
+            *ngIf="to.poster_path"
+            >
+          </ng-container>
+        </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+        <!-- popular -->
+        <div class="movie-card">
+          <div class="movie-card__content">
+          <ng-container *ngFor="let mo of mostPopularResult">
+            <img src="https://image.tmdb.org/t/p/original/{{ mo.poster_path }}" alt="..."
+            [routerLink]="['/movie',mo.id]"
+            class="movie-card__content--img"
+            *ngIf="mo.poster_path"
+            >
+          </ng-container>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

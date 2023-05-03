@@ -1,0 +1,37 @@
+<section class="search">
+  <div class="searchInput container mx-auto">
+    <h5 class="mb-3">What do you want to watch?</h5>
+    <form [formGroup]="searchForm" (ngSubmit)="submitForm($event)">
+      <div class="input-group">
+        <input type="text" class="form-control p-2" formControlName="movieName" placeholder="Search Movie Here...">
+        <button type="submit" (click)="makeSearch()"  class="btn btn-md p-2"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </form>
+    <div class="row mt-5" *ngIf="searchResult?.length > 0" >
+      <div class="col-md-6 col-sm-12" *ngFor="let s of searchResult">
+        <div class="row">
+          <div class="left col-md-4 col-sm-6 mb-4" *ngIf="s.poster_path">
+            <img
+              src="https://image.tmdb.org/t/p/original/{{s.poster_path}}"
+              [routerLink]="['/movie', s.id]"
+              class="searhImg"
+            >
+          </div>
+          <div class="right col-md-8 col-sm-6 p-5 ">
+            <h5>{{s.original_title}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!--Arama sonucu bulunamadığında gösterilecek uyarı mesajı -->
+  <div>
+    <ng-container *ngIf="searchResult === null">
+      <div class="noResultDiv">
+        <p>{{searchResult}}</p>
+        <img src="../../../assets/search.png" alt="" class="noResultImg">
+        <p>We Are Sorry, We Could Not Find The Movie</p>
+      </div>
+    </ng-container>
+  </div>
+  </div>
+</section>

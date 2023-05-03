@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+$black: #000;
+$white:#fff;
+$red: #E50914;
+$bgColor:#242A32;
+$blue:#0296E5;
+$searchInputColor:#3A3F47;
+$navbarBgColor:#1e2630;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: $white;
+}
+body{
+  background-color: $bgColor !important;
+
+}
+@mixin size($width,$height){
+  width: $width;
+  height: $height;
+}
+@mixin color($color,$backgroundColor){
+  color: $color;
+  background-color: $backgroundColor;
+}
+@mixin flex($display, $alignItem, $justify){
+  display: $display;
+  align-items: $alignItem;
+  justify-content: $justify;
+}
+//!Navbar
+.navbar{
+  background-color: $navbarBgColor;
+  padding: 1rem;
+  img{
+    width: 50px;
+    margin-right: 10px;
+  }
+  &-brand{
+    font-weight: bold;
+    font-size: 2rem;
+    color: $blue;
+  }
+  .nav-link{
+    color: $blue;
+    font-size: 1.2rem;
+    &:hover{
+      color: $white;
+    }
+  }
+}
+
+//!Home, Search sayfalarındaki search ınput
+.input-group{
+  input{
+    @include color($white,$searchInputColor);
+    border: none;
+  }
+  button{
+    background-color: $navbarBgColor;
+    &:hover{
+      background-color: $blue;
+    }
+  }
+}
+
+//! Home ve Search sayfalarında kullanılan tabs
+.nav-tabs{
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  border: none;
+  .nav-item{
+    margin-right: 5rem;
+    padding: 10px 10px 10px 0;
+    @media (max-width: 768px)
+    {
+      margin-right: 2rem;
+    }
+    @media (max-width: 540px)
+    {
+      margin-right: 0.5rem;
+    }
+    @media (max-width: 438px)
+    {
+      margin-right: 0.2rem;
+    }
+  }
+  .nav-link{
+    @include color($blue, transparent);
+    border: none;
+    &:hover, &.active:hover{
+      color: #fff;
+    }
+    &.active{
+      border-bottom: 2px solid $blue;
+      @include color($blue, transparent);
+    }
+  }
+}
+
+//! listelenen movie cardlar ortak özellikler
+.movie-card{
+  &__content{
+    width: 100%;
+    display: flex;
+    max-height: 320px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    &--img{
+      width: 20%;
+      object-fit: contain;
+      transition: transform 450ms;
+      border-radius: 2rem;
+      box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+      @media (max-width: 992px)
+      {
+        width: 30%;
+      }
+      @media (max-width: 570px)
+      {
+        width: 40%;
+      }
+
+      &:hover{
+        transform: scale(1.09);
+        cursor: pointer;
+      }
+      &::-webkit-scrollbar{
+        display: none;
+      }
+    }
+  }
+}

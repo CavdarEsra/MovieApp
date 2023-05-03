@@ -1,0 +1,88 @@
+<section class="details">
+  <div class="details__Image" *ngIf="getMovieDetailResult.poster_path">
+    <div class="details__Image--big-img">
+      <img src="https://image.tmdb.org/t/p/original/{{getMovieDetailResult.poster_path}}" alt="">
+    </div>
+    <div class="details__Image--small-img">
+      <div class="details__Image--small-img--left">
+        <img src="https://image.tmdb.org/t/p/original/{{getMovieDetailResult.poster_path}}" alt="">
+      </div>
+      <div class="details__Image--small-img--right">
+        <h2>{{getMovieDetailResult.original_title}}</h2>
+        <p class="text-muted">2021 | 148 Minutes | Action </p>
+        <!-- fragman izle butonu -->
+        <a class="btn mt-2" href="https://www.themoviedb.org/video/play?key={{getMovieDetailResult}}" target="_blank">
+          watch trailer
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="details__descriptions mt-0">
+    <div class="container mx-auto">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="aboutMovie-tab" data-bs-toggle="tab" data-bs-target="#aboutMovie"
+            type="button" role="tab" aria-controls="aboutMovie" aria-selected="true">About Movie</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button"
+            role="tab" aria-controls="reviews" aria-selected="false">Reviews</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="cast-tab" data-bs-toggle="tab" data-bs-target="#cast" type="button" role="tab"
+            aria-controls="cast" aria-selected="false">Cast</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+
+        <!--! About Movie -->
+        <div class="tab-pane fade show active" id="aboutMovie" role="tabpanel" aria-labelledby="aboutMovie-tab">
+          <p class=" mb-3">{{getMovieDetailResult.overview}}</p>
+        </div>
+
+        <!--! Reviews -->
+        <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+          <div class="reviews">
+            <ng-container *ngIf="getMovieReviewsResult && getMovieReviewsResult.length > 0; else noReviews">
+              <div class="reviews__item" *ngFor="let review of getMovieReviewsResult">
+                <div class="reviews__item--img" *ngIf="review.author_details?.avatar_path">
+                  <img [src]="'https://image.tmdb.org/t/p/w500/' + review.author_details.avatar_path" alt="img"
+                    onError="this.onerror=null;this.src='./assets/noPhoto.jpg';">
+                </div>
+                <div class="reviews__item--img" *ngIf="!review.author_details?.avatar_path">
+                  <img [src]="'./assets/noPhoto.jpg'" alt="IMG">
+                </div>
+                <div class="reviews__item--text">
+                  <h3>{{review.author}}</h3>
+                  <p>{{review.content}}</p>
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #noReviews>
+              <p>No comments to display</p>
+            </ng-template>
+          </div>
+        </div>
+
+        <!--! Cast -->
+        <div class="tab-pane fade" id="cast" role="tabpanel" aria-labelledby="cast-tab">
+          <div class="cast">
+            <div class="cast__item" *ngFor="let c of getMovieCastResult">
+              <div class="cast__item--img">
+                <img [src]="'https://image.tmdb.org/t/p/original/' + c.profile_path" alt="img"
+                  (error)="c.profile_path='./assets/noPhoto.jpg'" *ngIf="c.profile_path">
+                <!-- (error) olayı, resim yüklenirken hata oluştuğunda tetiklenir ve c.profile_path değişkeninin değeri ./assets/noPhoto.jpg olarak ayarlanır. -->
+                <!-- *ngIf koşulu, c.profile_path değişkeninin tanımlı olup olmadığını kontrol eder. Eğer c.profile_path tanımlıysa, resim gösterilir; değilse, img etiketi gösterilmez. -->
+                <img src="./assets/noPhoto.jpg" alt="IMG" *ngIf="!c.profile_path">
+              </div>
+              <div class="cast__item--text">
+                <h6 class="p-4 pt-3 text-center">{{c.original_name}}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
