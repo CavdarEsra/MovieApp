@@ -32,6 +32,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Used Technologies 
 * HTML
 * SCSS
+* ANGULAR
+* JQUERY
+* TMDB API
 ### Screenshot Of Website 
 ![Ekran resmi1](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_6.jpg)
 ![Ekran resmi2](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_4.jpg)
