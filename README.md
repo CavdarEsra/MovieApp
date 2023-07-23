@@ -34,4 +34,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 * SCSS
 ### Screenshot Of Website 
 ![Ekran resmi1](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_6.jpg)
-![Ekran resmi2](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_1.jpg)
+![Ekran resmi2](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_4.jpg)
+![Ekran resmi3](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_5.jpg)
+![Ekran resmi4](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_7.jpg)
+![Ekran resmi5](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_8.jpg)
+![Ekran resmi6](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_9.jpg)
+![Ekran resmi7](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_10.jpg)
+![Ekran resmi8](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_11.jpg)
+
+
+
+
+
