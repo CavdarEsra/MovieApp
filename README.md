@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+------------------------------------------------------------------------------------------------------------------
+
+# Movie App 
+## Used Technologies 
+* HTML
+* SCSS
+### Screenshot Of Website 
+![Ekran resmi1](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_6.jpg)
+![Ekran resmi2](https://github.com/CavdarEsra/MovieApp/blob/main/ekrang%C3%B6r%C3%BCnt%C3%BCleri/Screenshot_1.jpg)
